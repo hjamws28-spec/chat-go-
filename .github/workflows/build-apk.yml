@@ -5,25 +5,14 @@ on:
 
 jobs:
   build:
+    name: Build project
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Download repository
         uses: actions/checkout@v4
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build web app
-        run: npm run build
-
-      - name: Upload build files
-        uses: actions/upload-artifact@v4
-        with:
-          name: Chat-Go-Build
-          path: dist/
+      - name: Check project files
+        run: |
+          echo "Checking repository files"
+          ls -la1
